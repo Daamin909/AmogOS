@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import startAudioFile from "../../assets/sound/entry.mp3";
 import "./Nameplate.css";
 
-const Nameplate = ({isVisible, setIsVisible}) => {
+const Nameplate = ({ isVisible, setIsVisible }) => {
   if (!isVisible) {
     return null;
   }
@@ -14,7 +15,14 @@ const Nameplate = ({isVisible, setIsVisible}) => {
           <div className="progress-bar">
             <div className="progress"></div>
           </div>
-          <button onClick={() => setIsVisible(false)} className="begin">
+          <button
+            onClick={() => {
+              const startAudio = new Audio(startAudioFile);
+              startAudio.play();
+              setIsVisible(false);
+            }}
+            className="begin"
+          >
             BOOT
           </button>
         </div>

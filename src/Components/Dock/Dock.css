@@ -6,4 +6,9 @@
   position: absolute;
   bottom: 3%;
   right: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1px 7px;
+  gap: 15px;
 }
