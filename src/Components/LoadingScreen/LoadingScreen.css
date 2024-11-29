@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Space Mono&display=swap");
+
+.loading-screen {
+  font-family: "Space Mono", monospace;
+  background-color: black;
+  height: 100%;
+  width: 100%;
+}
+
+.animated-loader {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 1px;
+  color: #00ff00;
+}
+
+.animated-loader a {
+  font-family: "Space Mono", monospace;
+  font-size: 15px;
+}

@@ -1,0 +1,9 @@
+.dock {
+  height: 9vh;
+  background-color: rgba(245, 245, 245, 0.578);
+  width: 70vw;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 3%;
+  right: 15%;
+}
