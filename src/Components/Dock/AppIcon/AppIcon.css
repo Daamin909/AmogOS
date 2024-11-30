@@ -4,6 +4,7 @@
   align-items: center;
   width: auto;
   height: 45px;
+transition: all 0.1s ease;
 }
 
 .app-dock-icon-image {
@@ -11,4 +12,8 @@
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
+}
+
+.dock-app-icon:hover{
+  transform: scale(1.5);
 }

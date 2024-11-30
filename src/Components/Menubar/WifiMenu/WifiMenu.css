@@ -1,0 +1,30 @@
+.wifi-menu {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  top: 24px;
+  right: 0;
+  background: rgba(28, 28, 28, 0.9);
+  backdrop-filter: blur(12px);
+  border-radius: 8px;
+  padding: 8px;
+  min-width: 200px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-item {
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: default;
+}
+
+.dropdown-item:hover {
+  background: rgb(0, 87, 207);
+}
+
+.signal-strength {
+  font-size: 11px;
+  color: #999;
+}

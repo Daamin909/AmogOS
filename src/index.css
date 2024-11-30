@@ -1,10 +1,15 @@
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("assets/fonts/SF-Pro-Text-Regular.otf") format("opentype");
+}
+
 * {
-  font-family: system-ui;
+  font-family: "SF Pro Display";
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html{
+html {
   background-color: black;
 }

@@ -36,7 +36,7 @@ const LoadingScreen = ({ setLoaded }) => {
         clearInterval(interval);
         setLoaded(true);
       }
-    }, 500);
+    }, 1);
 
     return () => clearInterval(interval);
   }, []);
