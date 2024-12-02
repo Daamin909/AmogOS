@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Wifi } from "lucide-react";
-import "./WifiMenu.css";
 
 const WifiMenu = () => {
   const [isOpen, setIsOpen] = useState(false);

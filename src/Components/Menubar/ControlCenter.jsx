@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { LayoutGrid } from "lucide-react";
-import "./ControlCenter.css";
 
 const ControlCenter = () => {
   const [isOpen, setIsOpen] = useState(false);

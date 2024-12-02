@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Volume2 } from "lucide-react";
-import "./Volume.css";
 
 const Volume = () => {
   const [volume, setVolume] = useState(50);

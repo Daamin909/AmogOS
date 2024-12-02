@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
 import "./MenuBar.css";
-import AmongusAppleLogo from "./AmongusAppleLogo/AmongusAppleLogo";
-import AppMenu from "./AppMenu/AppMenu";
-import BatteryIndicator from "./BatteryIndicator/BatteryIndicator";
-import WifiMenu from "./WifiMenu/WifiMenu";
-import Volume from "./Volume/Volume";
-import ControlCenter from "./ControlCenter/ControlCenter";
-import Clock from "./Clock/Clock";
+import AmongusAppleLogo from "./AmongusAppleLogo";
+import AppMenu from "./AppMenu";
+import BatteryIndicator from "./BatteryIndicator";
+import WifiMenu from "./WifiMenu";
+import Volume from "./Volume";
+import ControlCenter from "./ControlCenter";
+import Clock from "./Clock";
 
 export default function MenuBar() {
   const [currentApp, setCurrentApp] = useState("Safari");

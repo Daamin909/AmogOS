@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Battery } from "lucide-react";
-import "./BatteryIndicator.css";
 
 const BatteryIndicator = () => {
   const [batteryLevel, setBatteryLevel] = useState(100);
