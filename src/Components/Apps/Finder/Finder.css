@@ -1,0 +1,256 @@
+.finder-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.finder {
+  position: absolute;
+  width: 800px;
+  height: 600px;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: "SF Pro Display", sans-serif;
+  color: #ffffff;
+  transition: width 0.3s, height 0.3s;
+}
+
+.finder--maximized {
+  width: 100% !important;
+  height: 100% !important;
+  left: 0 !important;
+  top: 0 !important;
+  border-radius: 0;
+}
+
+.finder--dragging {
+  transition: none;
+}
+
+.finder__header {
+  background: #2c2c2c;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  cursor: move;
+}
+
+.finder__window-controls {
+  display: flex;
+  gap: 8px;
+  margin-right: 8px;
+}
+
+.finder__control {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.finder__control--close {
+  background-color: #ff5f57;
+}
+
+.finder__control--minimize {
+  background-color: #febc2e;
+}
+
+.finder__control--maximize {
+  background-color: #28c940;
+}
+
+.finder__title {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.finder__content {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.file-list {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.file-item__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.file-list--grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 20px;
+}
+
+.file-list--list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.file-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  text-align: center;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.file-item__details {
+  display: flex;
+  justify-content: right;
+}
+
+.file-list--list .file-item__info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.file-list--list .file-item__details {
+  display: flex;
+  gap: 16px;
+  color: #888;
+  font-size: 12px;
+}
+
+.file-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.file-item--selected {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.file-item__name {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #d0d0d0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.toolbar {
+  height: 50px;
+  background-color: #2c2c2c;
+  border-bottom: 1px solid #3a3a3a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.toolbar__left,
+.toolbar__right {
+  display: flex;
+  gap: 10px;
+}
+
+.toolbar__center {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #3a3a3a;
+  border-radius: 5px;
+  padding: 5px 10px;
+  width: 300px;
+  margin: 5px;
+}
+
+.search-bar__input {
+  border: none;
+  background: transparent;
+  margin-left: 5px;
+  outline: none;
+  width: 100%;
+  font-size: 13px;
+  color: #ffffff;
+}
+
+.toolbar__button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #d0d0d0;
+}
+
+.preview {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #2c2c2c;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  max-width: 80%;
+  max-height: 80%;
+  overflow: auto;
+}
+
+.preview__title {
+  margin-bottom: 10px;
+}
+
+.preview__image {
+  max-width: 100%;
+  height: auto;
+}
+
+hr {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.preview__text {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 19px;
+  width: 500px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4a4a4a;
+}
