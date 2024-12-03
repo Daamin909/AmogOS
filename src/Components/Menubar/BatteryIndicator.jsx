@@ -2,20 +2,30 @@ import React, { useEffect, useState } from "react";
 import { Battery } from "lucide-react";
 
 const BatteryIndicator = () => {
-  const [batteryLevel, setBatteryLevel] = useState(100);
+  const [batteryPercentage, setBatteryPercentage] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setBatteryLevel((prev) => Math.max(0, prev - 1));
-    }, 15 * 60 * 1000);
-
-    return () => clearInterval(interval);
+    const updateBatteryStatus = async () => {
+      const battery = await navigator.getBattery();
+      setBatteryPercentage(battery.level * 100);
+      battery.addEventListener("levelchange", () => {
+        setBatteryPercentage(battery.level * 100);
+      });
+    };
+    updateBatteryStatus();
+    return () => {
+      if (navigator.getBattery) {
+        navigator.getBattery().then((battery) => {
+          battery.removeEventListener("levelchange", updateBatteryStatus);
+        });
+      }
+    };
   }, []);
 
   return (
     <div className="menu-item battery-indicator">
       <Battery className="icon" />
-      <span>{batteryLevel}%</span>
+      <span>{batteryPercentage}%</span>
     </div>
   );
 };

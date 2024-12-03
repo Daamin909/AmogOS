@@ -13,3 +13,9 @@
 html {
   background-color: black;
 }
+* {
+  user-select: none;
+}
+img {
+  pointer-events: none;
+}
