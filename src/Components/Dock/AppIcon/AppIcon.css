@@ -3,8 +3,8 @@
   justify-content: center;
   align-items: center;
   width: auto;
-  height: 45px;
-transition: all 0.1s ease;
+  height: 55px;
+  transition: all 0.1s ease;
 }
 
 .app-dock-icon-image {
@@ -14,6 +14,6 @@ transition: all 0.1s ease;
   border-radius: 10px;
 }
 
-.dock-app-icon:hover{
-  transform: scale(1.5);
+.dock-app-icon:hover {
+  transform: scale(1.3);
 }

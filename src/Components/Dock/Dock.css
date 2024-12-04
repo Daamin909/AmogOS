@@ -4,11 +4,11 @@
   width: fit-content;
   border-radius: 10px;
   position: absolute;
-  bottom: 1%;
+  bottom: 2%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1px 7px;
+  padding: 2px 7px;
   gap: 15px;
   justify-self: center;
 }
