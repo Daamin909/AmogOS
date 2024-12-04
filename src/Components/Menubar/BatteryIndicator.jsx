@@ -25,7 +25,6 @@ const BatteryIndicator = () => {
   return (
     <div className="menu-item battery-indicator">
       <Battery className="icon" />
-      <span>{batteryPercentage}%</span>
     </div>
   );
 };

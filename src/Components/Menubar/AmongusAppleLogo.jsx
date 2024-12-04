@@ -2,7 +2,11 @@ import React from "react";
 
 const AmongusAppleLogo = () => {
   return (
-    <div className="menu-item amogus-container">
+    <a
+      href="https://github.com/daamin909/amogos"
+      target="_blank"
+      className="menu-item amogus-container"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 200 200"
@@ -34,7 +38,7 @@ const AmongusAppleLogo = () => {
           fill="#d9d9d9"
         />
       </svg>
-    </div>
+    </a>
   );
 };
 export default AmongusAppleLogo;

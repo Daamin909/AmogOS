@@ -1,0 +1,76 @@
+.kaabilbot {
+  position: absolute;
+  width: 800px;
+  height: 700px;
+  background-color: #2c2c2c;
+  border-radius: 10px;
+  overflow: hidden;
+}
+iframe {
+  height: 100%;
+  width: 100%;
+}
+.kaabilbot--maximized {
+  width: 100% !important;
+  height: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+.kaabilbot-header {
+  background-color: #2c2c2c;
+  color: white;
+  padding: 5px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: move;
+}
+
+.kaabilbot-window-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.kaabilbot-control {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.kaabilbot-control--close {
+  background-color: #ff3b30;
+}
+
+.kaabilbot-control--minimize {
+  background-color: #ffcc00;
+}
+
+.kaabilbot-control--maximize {
+  background-color: #28cd41;
+}
+
+.kaabilbot-title {
+  font-size: 15px;
+}
+
+.kaabilbot-refresh {
+  background-color: transparent;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.kaabilbot-refresh:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.kaabilbot-content {
+  height: 100.2%;
+  overflow: auto;
+}

@@ -12,7 +12,13 @@ const ControlCenter = () => {
       <LayoutGrid className="icon" />
       {isOpen && (
         <div className="dropdown">
-          <div className="dropdown-item">Wi-Fi & Network</div>
+          <a
+            href="https://www.youtube.com/watch?v=xvFZjo5PgG0"
+            target="_blank"
+            className="dropdown-item"
+          >
+            Audio
+          </a>
           <div className="dropdown-item">Bluetooth</div>
         </div>
       )}

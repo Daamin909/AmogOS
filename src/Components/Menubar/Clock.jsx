@@ -15,9 +15,7 @@ const Clock = () => {
     <div className="menu-item clock">
       {date.toLocaleString("en-US", {
         weekday: "short",
-        month: "short",
-        day: "numeric",
-        hour: "numeric",
+        hour: "2-digit",
         minute: "2-digit",
         hour12: true,
       })}

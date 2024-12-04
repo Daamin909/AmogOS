@@ -10,7 +10,7 @@ const WifiMenu = () => {
       {isOpen && (
         <div className="dropdown">
           <div className="dropdown-item">
-            Connected to Sus
+            Connected to SUSSY_5G
             <div className="signal-strength">Signal strength: Excellent</div>
           </div>
         </div>

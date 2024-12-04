@@ -167,3 +167,9 @@
   height: 1px;
   margin-top: 10px;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+}
