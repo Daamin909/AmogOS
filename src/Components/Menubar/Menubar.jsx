@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./MenuBar.css";
+import "./Menubar.css";
 import AmongusAppleLogo from "./AmongusAppleLogo";
 import AppMenu from "./AppMenu";
 import WifiMenu from "./WifiMenu";
