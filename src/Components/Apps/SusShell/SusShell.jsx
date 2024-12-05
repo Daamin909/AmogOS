@@ -44,7 +44,7 @@ const SusShell = ({ isVisible, setIsVisible }) => {
     }
   }, [output]);
   const commands = {
-    help: `Available commands: \nhelp\nls\nclear\nexit\necho\nsecret\ndate\nwhoami\nmkdir\ntips\nplay\npwd\nuptime\ntouch\nrm\nmv\nchmod\nsussy\nlocate\nsudo`,
+    help: `Available commands: \nhelp\nls\nclear\nexit\necho\nsecret\ndate\nwhoami\ncat\nmkdir\ntips\npwd\nuptime\ntouch\nrm\nmv\nchmod\nsussy\nlocate\nsudo`,
     ls: () => files.join("\n"),
     clear: () => {
       "Screen cleared!";
@@ -69,10 +69,6 @@ const SusShell = ({ isVisible, setIsVisible }) => {
         ? `Directory '${args[0]}' created (not really, this is fake).`
         : "Usage: mkdir [directory_name]",
     tips: "Type `help` to see all commands. Explore for surprises!",
-    play: () => {
-      window.open("https://amongus-online.net/", "_blank");
-      return "Enjoy!!!";
-    },
     pwd: "/ligma/balls/susShell",
     uptime: "System uptime: 69:69:69 (real).",
     touch: (args) =>
