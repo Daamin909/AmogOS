@@ -37,7 +37,7 @@ const KaabilBot = ({ isVisible, setIsVisible }) => {
           className={`kaabilbot ${isMaximized ? "kaabilbot--maximized" : ""}`}
           style={{
             width: isMaximized ? "100%" : "1280px",
-            height: isMaximized ? "100%" : "500px",
+            height: isMaximized ? "100%" : "7w00px",
           }}
         >
           <div className="kaabilbot-header">
@@ -83,18 +83,3 @@ const KaabilBot = ({ isVisible, setIsVisible }) => {
 };
 
 export default KaabilBot;
-
-
-
-
-/*
-
-
-
-
-
-
-
-
-
-*/

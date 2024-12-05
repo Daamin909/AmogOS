@@ -563,6 +563,7 @@ const Finder = ({ isVisible, setIsVisible, parentRef }) => {
             <div className="finder__title">SussyFinder</div>
           </div>
           <Toolbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+          <div className="tip">Hold spacebar to preview.</div>
           <div className="finder__content">
             <FileList
               files={files}
