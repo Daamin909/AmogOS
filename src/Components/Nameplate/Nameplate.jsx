@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import startAudioFile from "../../assets/sound/entry.mp3";
+import { Power } from "lucide-react";
 import "./Nameplate.css";
 
 const Nameplate = ({ isVisible, setIsVisible }) => {
@@ -11,7 +12,7 @@ const Nameplate = ({ isVisible, setIsVisible }) => {
     if (isVisible) {
       setTimeout(() => {
         timePassed = true;
-      }, 3000);
+      }, 2500);
     }
   }, []);
   return (
@@ -42,6 +43,7 @@ const Nameplate = ({ isVisible, setIsVisible }) => {
             }}
             className="begin"
           >
+            <Power />
             BOOT
           </button>
         </div>

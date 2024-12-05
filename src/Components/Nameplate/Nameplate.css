@@ -98,6 +98,10 @@ h1 {
   background-color: black;
   transition: all 0.3s ease-in-out;
   font-weight: 900;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .begin:hover {

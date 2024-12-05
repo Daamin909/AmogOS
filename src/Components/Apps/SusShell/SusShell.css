@@ -71,7 +71,9 @@
   color: lightgray;
   font-family: monospace;
 }
-
+*{
+  scroll-behavior: smooth;
+}
 .shell-input-line input {
   background: black;
   border: none;

@@ -16,7 +16,8 @@ const SusShell = ({ isVisible, setIsVisible }) => {
   const [position, setPosition] = useState({ x: 20, y: 20 });
   const inputRef = useRef();
   const shellRef = useRef();
-  const [files, setFiles] = useState([
+  const shellContentRef = useRef();
+  const [files] = useState([
     "victory.txt",
     "tasklst.txt",
     "scan.txt",
@@ -37,9 +38,13 @@ const SusShell = ({ isVisible, setIsVisible }) => {
     "sussycat.png",
     "cowboy.gif",
   ]);
-
+  useEffect(() => {
+    if (shellContentRef.current) {
+      shellContentRef.current.scrollTop = shellContentRef.current.scrollHeight;
+    }
+  }, [output]);
   const commands = {
-    help: `Available commands: \nhelp\nls\nclear\nexit\necho\ncolor\nsecret\ndate\nwhoami\nmkdir\ntips\nplay\npwd\nuptime\ntouch\ncat\nrm\nmv\nchmod\nsussy\nlocate\nsudo`,
+    help: `Available commands: \nhelp\nls\nclear\nexit\necho\nsecret\ndate\nwhoami\nmkdir\ntips\nplay\npwd\nuptime\ntouch\ncat\nrm\nmv\nchmod\nsussy\nlocate\nsudo`,
     ls: () => files.join("\n"),
     clear: () => {
       "Screen cleared!";
@@ -53,10 +58,6 @@ const SusShell = ({ isVisible, setIsVisible }) => {
       return "Exiting SusShell...";
     },
     echo: (args) => args.join(" ") || "Usage: echo [text]",
-    color: (args) =>
-      args.length > 0
-        ? `Text color changed to ${args[0]}`
-        : "Usage: color [color_name]",
     secret: () => {
       window.open("https://www.youtube.com/watch?v=xvFZjo5PgG0", "_blank");
       return "shushhhh!!";
@@ -107,8 +108,6 @@ const SusShell = ({ isVisible, setIsVisible }) => {
       "Error: You're not allowed to do that as a lowly impostor. Only crewmates can sudo!",
   };
 
-  const colors = ["red", "green", "blue", "yellow", "cyan", "white", "magenta"];
-
   const handleCommand = (command) => {
     const [cmd, ...args] = command.split(" ");
     if (cmd === "clear") {
@@ -129,9 +128,6 @@ const SusShell = ({ isVisible, setIsVisible }) => {
       if (cmd === "exit") {
         setTimeout(() => setIsVisible(false), 1000);
       }
-      if (cmd === "color" && args.length > 0 && colors.includes(args[0])) {
-        document.body.style.color = args[0];
-      }
     } else {
       setOutput((prev) => [
         ...prev,
@@ -144,6 +140,9 @@ const SusShell = ({ isVisible, setIsVisible }) => {
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
+      if (input.length == 0) {
+        return;
+      }
       handleCommand(input.trim());
       setInput("");
     }
@@ -190,15 +189,12 @@ const SusShell = ({ isVisible, setIsVisible }) => {
               <div className="shell-title">SussyShell</div>
               <div></div>
             </div>
-            <div className="shell-body" ref={shellRef}>
+            <div className="shell-body" ref={shellContentRef}>
               {output.map((line, index) => (
-                <>
-                  <pre
-                    key={index}
-                    dangerouslySetInnerHTML={{ __html: line }}
-                  ></pre>
-                  <br />
-                </>
+                <pre
+                  key={index}
+                  dangerouslySetInnerHTML={{ __html: line }}
+                ></pre>
               ))}
               <div className="shell-input-line">
                 <span style={{ color: "#39FF14" }}>root@amogOS:/$ </span>
