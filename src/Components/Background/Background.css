@@ -1,0 +1,24 @@
+/* Ensure particles take up the entire screen and stay in the background */
+#tsparticles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Keep particles behind other content */
+}
+
+/* Custom particle appearance: shape, size, opacity */
+.particles canvas {
+  animation: particlesMove 1.5s infinite linear; /* Adjust speed of animation */
+}
+
+/* Control movement, speed, and direction */
+@keyframes particlesMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(100%, 100%); /* Controls particle movement direction */
+  }
+}

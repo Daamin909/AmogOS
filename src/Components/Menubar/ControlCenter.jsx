@@ -19,7 +19,6 @@ const ControlCenter = () => {
           >
             Audio
           </a>
-          <div className="dropdown-item">Bluetooth</div>
         </div>
       )}
     </div>

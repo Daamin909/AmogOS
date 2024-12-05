@@ -7,26 +7,32 @@ import emojizeIcon from "../../assets/images/appicons/emojize.png";
 import chessbroIcon from "../../assets/images/appicons/chessbro.png";
 import focusquackIcon from "../../assets/images/appicons/focusquack.png";
 import kaabilbotIcon from "../../assets/images/appicons/kaabilbot.png";
+import susshellIcon from "../../assets/images/appicons/susshell.png";
+import macrohardedgingIcon from "../../assets/images/appicons/macrohardedging.png";
 import ooooIcon from "../../assets/images/appicons/oooo.png";
 import Finder from "../Apps/Finder/Finder";
 import Emojize from "../Apps/Emojize/Emojize";
 import FocusQuack from "../Apps/FocusQuack/FocusQuack";
+import SusShell from "../Apps/SusShell/SusShell";
 import ChessBro from "./../Apps/ChessBro/ChessBro";
 import ParodyPress from "./../Apps/ParodyPress/ParodyPress";
 import Oooo from "./../Apps/oooo/Oooo";
 import KaabilBot from "./../Apps/KaabilBot/KaabilBot";
+import MacrohardEdging from "../Apps/MacrohardEdging/MacrohardEdging";
 const Dock = () => {
   const [finderVisible, setFinderVisible] = useState(false);
   const [emojizeVisible, setEmojizeVisible] = useState(false);
+  const [susShellVisible, setSusShellVisible] = useState(false);
   const [focusquackVisible, setFocusquackVisible] = useState(false);
   const [chessbroVisible, setChessbroVisible] = useState(false);
   const [parodypressVisible, setParodypressVisible] = useState(false);
   const [ooooVisible, setOoooVisible] = useState(false);
   const [kaabilbotVisible, setKaabilbotVisible] = useState(false);
+  const [macrohardEdgingVisible, setMacrohardEdgingVisible] = useState(false);
 
   const [dockIcons, setDockIcons] = useState([
     {
-      name: "Finder",
+      name: "SussyFinder",
       icon: finderIcon,
       onClick: () => setFinderVisible((prev) => !prev),
     },
@@ -51,6 +57,11 @@ const Dock = () => {
       onClick: () => setEmojizeVisible((prev) => !prev),
     },
     {
+      name: "Macrohard Edging",
+      icon: macrohardedgingIcon,
+      onClick: () => setMacrohardEdgingVisible((prev) => !prev),
+    },
+    {
       name: "FocusQuack",
       icon: focusquackIcon,
       onClick: () => setFocusquackVisible((prev) => !prev),
@@ -59,6 +70,11 @@ const Dock = () => {
       name: "KaabilBot",
       icon: kaabilbotIcon,
       onClick: () => setKaabilbotVisible((prev) => !prev),
+    },
+    {
+      name: "SussyShell",
+      icon: susshellIcon,
+      onClick: () => setSusShellVisible((prev) => !prev),
     },
   ]);
 
@@ -92,6 +108,11 @@ const Dock = () => {
         isVisible={kaabilbotVisible}
         setIsVisible={setKaabilbotVisible}
       />
+      <MacrohardEdging
+        isVisible={macrohardEdgingVisible}
+        setIsVisible={setMacrohardEdgingVisible}
+      />
+      <SusShell isVisible={susShellVisible} setIsVisible={setSusShellVisible} />
     </>
   );
 };

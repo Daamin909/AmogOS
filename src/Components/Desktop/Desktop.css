@@ -1,9 +1,7 @@
 .desktop {
-  background-image: url("../../assets/images/macosisbased.png");
   height: 100%;
   width: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-size: cover;
   display: grid;
+  position: relative;
+  z-index: 1;
 }

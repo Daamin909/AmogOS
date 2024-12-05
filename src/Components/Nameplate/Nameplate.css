@@ -56,7 +56,6 @@
 h1 {
   font-size: 48px;
   margin-bottom: 20px;
-  text-transform: uppercase;
   letter-spacing: 4px;
   animation: glow 1.5s ease-in-out infinite alternate;
 }

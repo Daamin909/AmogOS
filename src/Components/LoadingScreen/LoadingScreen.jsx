@@ -5,24 +5,13 @@ import "./LoadingScreen.css";
 const LoadingScreen = ({ setLoaded }) => {
   const [statements, setStatements] = useState([]);
   const setup = [
-    "Initializing system hardware...",
-    "Loading kernel modules...",
-    "Checking file system integrity...",
-    "Starting system daemons...",
-    "Mounting local drives...",
-    "Initializing network interfaces...",
-    "Starting display manager...",
-    "Configuring desktop environment...",
-    "Loading user session...",
-    "Initializing sound system...",
-    "Checking for system updates...",
-    "Establishing secure connections...",
-    "Loading device drivers...",
-    "Verifying user credentials...",
-    "Synchronizing system clock...",
-    "Preparing coffee for the CPU... ☕",
-    "Debugging the universe... 🌌",
-    "Counting to infinity... Almost there!",
+    "Initializing system hard software...",
+    "Loading kebab modules...",
+    "Turning Cams On...",
+    "Initializing obama interfaces...",
+    "Starting disligma manager...",
+    "Configuring sussy environment...",
+    "Loading impostor session...",
   ];
 
   useEffect(() => {
@@ -36,7 +25,7 @@ const LoadingScreen = ({ setLoaded }) => {
         clearInterval(interval);
         setLoaded(true);
       }
-    }, 1);
+    }, 600);
 
     return () => clearInterval(interval);
   }, []);

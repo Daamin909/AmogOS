@@ -2,6 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  font-size: 6px;
   width: auto;
   height: 55px;
   transition: all 0.1s ease;
@@ -16,4 +18,12 @@
 
 .dock-app-icon:hover {
   transform: scale(1.3);
+}
+.text {
+  font-family: monospace;
+  color: transparent;
+}
+.dock-app-icon:hover .text {
+  transform: scale(3) translateY(-24px);
+  color: white;
 }

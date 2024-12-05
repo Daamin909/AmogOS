@@ -125,11 +125,6 @@
 .clock {
   font-size: 12px;
 }
-.battery-indicator {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
 
 .icon {
   width: 16px;
