@@ -22,7 +22,7 @@ const OS = () => {
       {!nameplateVisible && (
         <main className="main">
           <Background />
-          <Desktop />{" "}
+          <Desktop />
         </main>
       )}
     </div>
