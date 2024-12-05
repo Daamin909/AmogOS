@@ -10,11 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.7.1",
     "lucide-react": "^0.462.0",
-    "puppeteer": "^23.9.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-draggable": "^4.4.6"
+    "react-draggable": "^4.4.6",
+    "react-tsparticles": "^2.12.2",
+    "tsparticles": "^3.7.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
