@@ -44,7 +44,7 @@ const SusShell = ({ isVisible, setIsVisible }) => {
     }
   }, [output]);
   const commands = {
-    help: `Available commands: \nhelp\nls\nclear\nexit\necho\nsecret\ndate\nwhoami\nmkdir\ntips\nplay\npwd\nuptime\ntouch\ncat\nrm\nmv\nchmod\nsussy\nlocate\nsudo`,
+    help: `Available commands: \nhelp\nls\nclear\nexit\necho\nsecret\ndate\nwhoami\nmkdir\ntips\nplay\npwd\nuptime\ntouch\nrm\nmv\nchmod\nsussy\nlocate\nsudo`,
     ls: () => files.join("\n"),
     clear: () => {
       "Screen cleared!";
@@ -80,12 +80,12 @@ const SusShell = ({ isVisible, setIsVisible }) => {
         ? `File '${args[0]}' created (fake file).`
         : "Usage: touch [file_name]",
     cat: (args) =>
-      args.length > 0 && file.includes(args[0])
+      args.length > 0 && files.includes(args[0])
         ? `Contents of '${args[0]}': [Redacted by the impostor]`
         : "Usage: cat [file_name] - File not found.",
     rm: (args) =>
-      args.length > 0 && file.includes(args[0])
-        ? `File '${args[0]}' deleted (pretend).`
+      args.length > 0 && files.includes(args[0])
+        ? `File '${args[0]}' deleted (maybe idk lol).`
         : "Usage: rm [file_name] - File not found.",
     mv: (args) =>
       args.length > 1
