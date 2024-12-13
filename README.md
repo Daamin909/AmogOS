@@ -12,8 +12,8 @@ Welcome to **AmogOS**, a sus web-based operating system designed to keep things 
 - **Macrohard Edging**: A sleek web browser designed to keep you on the edge. Surf the web like a crewmate!
 - **SussyFinder**: File management made sus! Organize, search, and find your files with style.
 
-### Additional Apps:
-
+### Additional Apps (Hub of Apps):
+These apps are projects that I've made in the past.
 - **FocusQuack**: A productivity tool that helps you focus... or distracts you with its quirky personality.
 - **ParodyPress**: Turn serious news into laugh-out-loud parodies. Because every headline deserves a twist.
 - **Emojize**: Convert plain text into expressive emojis. Say it with 🥳 and 😂.
