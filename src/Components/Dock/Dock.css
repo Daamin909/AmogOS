@@ -1,5 +1,4 @@
 .dock {
-  height: 9vh;
   background-color: rgba(245, 245, 245, 0.578);
   width: fit-content;
   border-radius: 10px;
@@ -8,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2px 7px;
+  padding: 12px 7px 5px;
   gap: 15px;
   justify-self: center;
 }
