@@ -1,22 +1,30 @@
 import React, { useState, useEffect, useRef } from "react";
 import Draggable from "react-draggable";
 import { RefreshCcw } from "lucide-react";
-import "./ParodyPress.css";
+import "./Oooo.css";
 import {
   handleRefresh,
   handleMinimize,
   handleClose,
-  handleDragStop,
   handleMaximize,
+  handleDragStop,
 } from "./../../../scripts/index";
 
-const ParodyPress = ({ isVisible, setIsVisible }) => {
-  const [url, setURL] = useState("https://parodypress.daamin.tech");
-  const [isMaximized, setIsMaximized] = useState(false);
-  const [position, setPosition] = useState({ x: 20, y: 20 });
-  const url1 = "https://parodypress.daamin.tech";
-  const url2 = "https://parody-press.vercel.app";
-  const ParodyPressRef = useRef(null);
+interface OoooProps {
+  isVisible: boolean;
+  setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Oooo: React.FC<OoooProps> = ({ isVisible, setIsVisible }) => {
+  const [url, setURL] = useState<string>("https://oo0oo0o0ooo0.daamin.tech/");
+  const [isMaximized, setIsMaximized] = useState<boolean>(false);
+  const [position, setPosition] = useState<{ x: number; y: number }>({
+    x: 20,
+    y: 20,
+  });
+  const url1 = "https://oo0oo0o0ooo0.daamin.tech/";
+  const url2 = "https://ooooooo-4s4j.onrender.com/";
+  const OoooRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isVisible) {
@@ -27,48 +35,46 @@ const ParodyPress = ({ isVisible, setIsVisible }) => {
   return (
     isVisible && (
       <Draggable
-        handle=".parodypress-header"
+        handle=".oooo-header"
         bounds="parent"
         position={position}
         onStop={(e, data) => handleDragStop(e, data, isMaximized, setPosition)}
         disabled={isMaximized}
       >
         <div
-          ref={ParodyPressRef}
-          className={`parodypress ${
-            isMaximized ? "parodypress--maximized" : ""
-          }`}
+          ref={OoooRef}
+          className={`oooo ${isMaximized ? "oooo--maximized" : ""}`}
           style={{
-            width: isMaximized ? "100%" : "900px",
+            width: isMaximized ? "100%" : "800px",
             height: isMaximized ? "100%" : "600px",
           }}
         >
-          <div className="parodypress-header">
-            <div className="parodypress-window-controls">
+          <div className="oooo-header">
+            <div className="oooo-window-controls">
               <button
-                className="parodypress-control parodypress-control--close"
+                className="oooo-control oooo-control--close"
                 onClick={() => handleClose(setIsVisible)}
               ></button>
               <button
-                className="parodypress-control parodypress-control--minimize"
+                className="oooo-control oooo-control--minimize"
                 onClick={() => handleMinimize(setIsVisible)}
               ></button>
               <button
-                className="parodypress-control parodypress-control--maximize"
+                className="oooo-control oooo-control--maximize"
                 onClick={() =>
                   handleMaximize(setIsMaximized, isMaximized, setPosition)
                 }
               ></button>
             </div>
-            <div className="parodypress-title">ParodyPress</div>
+            <div className="oooo-title">Oooo</div>
             <button
-              className="parodypress-refresh"
+              className="oooo-refresh"
               onClick={() => handleRefresh(setURL, url1, url2)}
             >
               <RefreshCcw />
             </button>
           </div>
-          <div className="parodypress-content">
+          <div className="oooo-content">
             <iframe
               src={url}
               style={{
@@ -76,7 +82,7 @@ const ParodyPress = ({ isVisible, setIsVisible }) => {
                 height: "calc(100% - 50px)",
                 border: "none",
               }}
-              title="ParodyPress"
+              title="Oooo"
             />
           </div>
         </div>
@@ -85,4 +91,4 @@ const ParodyPress = ({ isVisible, setIsVisible }) => {
   );
 };
 
-export default ParodyPress;
+export default Oooo;

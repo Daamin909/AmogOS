@@ -1,9 +1,8 @@
 import React from "react";
-
 import "./App.css";
 import OS from "./Components/OS/OS";
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <div className="app">
       <OS />

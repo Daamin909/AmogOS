@@ -10,13 +10,21 @@ import {
   handleMaximize,
 } from "./../../../scripts/index";
 
-const Emojize = ({ isVisible, setIsVisible }) => {
-  const [url, setURL] = useState("https://emojize.daamin.tech");
+interface EmojizeProps {
+  isVisible: boolean;
+  setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Emojize: React.FC<EmojizeProps> = ({ isVisible, setIsVisible }) => {
+  const [url, setURL] = useState<string>("https://emojize.daamin.tech");
   const url1 = "https://emojize.daamin.tech";
   const url2 = "https://emojize-neon.vercel.app";
-  const [isMaximized, setIsMaximized] = useState(false);
-  const [position, setPosition] = useState({ x: 20, y: 20 });
-  const emojizeRef = useRef(null);
+  const [isMaximized, setIsMaximized] = useState<boolean>(false);
+  const [position, setPosition] = useState<{ x: number; y: number }>({
+    x: 20,
+    y: 20,
+  });
+  const emojizeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isVisible) {

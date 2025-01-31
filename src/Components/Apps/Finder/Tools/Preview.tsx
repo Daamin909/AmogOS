@@ -1,6 +1,18 @@
 import React from "react";
 
-const Preview = ({ file }) => {
+interface File {
+  name: string;
+  type: string;
+  image?: string;
+  content?: string;
+  audio?: string;
+}
+
+interface PreviewProps {
+  file: File;
+}
+
+const Preview: React.FC<PreviewProps> = ({ file }) => {
   return (
     <div className="preview">
       <h2 className="preview__title">{file.name}</h2>
@@ -12,7 +24,7 @@ const Preview = ({ file }) => {
       {file.type === "text" && (
         <pre
           className="preview__text"
-          dangerouslySetInnerHTML={{ __html: file.content }}
+          dangerouslySetInnerHTML={{ __html: file.content || "" }}
         ></pre>
       )}
       {file.type === "audio" && (
@@ -25,5 +37,3 @@ const Preview = ({ file }) => {
 };
 
 export default Preview;
-
-

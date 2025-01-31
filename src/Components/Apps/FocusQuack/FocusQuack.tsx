@@ -10,13 +10,19 @@ import {
   handleMaximize,
 } from "./../../../scripts/index";
 
-const FocusQuack = ({ isVisible, setIsVisible }) => {
-  const [url, setURL] = useState("https://focus-quack.daamin.tech");
-  const [isMaximized, setIsMaximized] = useState(false);
-  const [position, setPosition] = useState({ x: 20, y: 20 });
-  const FocusQuackRef = useRef(null);
+interface FocusQuackProps {
+  isVisible: boolean;
+  setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const FocusQuack: React.FC<FocusQuackProps> = ({ isVisible, setIsVisible }) => {
+  const [url, setURL] = useState<string>("https://focus-quack.daamin.tech");
+  const [isMaximized, setIsMaximized] = useState<boolean>(false);
+  const [position, setPosition] = useState<{ x: number; y: number }>({ x: 20, y: 20 });
+  const FocusQuackRef = useRef<HTMLDivElement>(null);
   const url1 = "https://focus-quack.daamin.tech";
   const url2 = "https://focus-quack.vercel.app";
+
   useEffect(() => {
     if (isVisible) {
       handleRefresh(setURL, url1, url2);

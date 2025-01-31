@@ -1,12 +1,32 @@
 import React from "react";
 import { FileImage, FileText, FileAudio } from "lucide-react";
 
-const FileList = ({ files, searchTerm, selectedFile, setSelectedFile }) => {
+interface File {
+  name: string;
+  type: string;
+  image?: string;
+  content?: string;
+  audio?: string;
+}
+
+interface FileListProps {
+  files: File[];
+  searchTerm: string;
+  selectedFile: File | null;
+  setSelectedFile: (file: File | null) => void;
+}
+
+const FileList: React.FC<FileListProps> = ({
+  files,
+  searchTerm,
+  selectedFile,
+  setSelectedFile,
+}) => {
   const filteredFiles = files.filter((file) =>
     file.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const getFileIcon = (type) => {
+  const getFileIcon = (type: string) => {
     switch (type) {
       case "image":
         return <FileImage size={24} />;
@@ -17,7 +37,7 @@ const FileList = ({ files, searchTerm, selectedFile, setSelectedFile }) => {
     }
   };
 
-  const handleFileClick = (file) => {
+  const handleFileClick = (file: File) => {
     if (selectedFile && selectedFile.name === file.name) {
       setSelectedFile(null);
     } else {
@@ -48,4 +68,3 @@ const FileList = ({ files, searchTerm, selectedFile, setSelectedFile }) => {
 };
 
 export default FileList;
-
