@@ -9,13 +9,21 @@ import {
   handleDragStop,
 } from "./../../../scripts/index";
 
-const ChessBro = ({ isVisible, setIsVisible }) => {
-  const [url, setURL] = useState("https://chessbro.daamin.tech");
+interface ChessBroProps {
+  isVisible: boolean;
+  setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const ChessBro: React.FC<ChessBroProps> = ({ isVisible, setIsVisible }) => {
+  const [url, setURL] = useState<string>("https://chessbro.daamin.tech");
   const url1 = "https://chessbro.daamin.tech";
   const url2 = "https://chess-bro.vercel.app";
-  const [isMaximized, setIsMaximized] = useState(false);
-  const [position, setPosition] = useState({ x: 20, y: 20 });
-  const ChessBroRef = useRef(null);
+  const [isMaximized, setIsMaximized] = useState<boolean>(false);
+  const [position, setPosition] = useState<{ x: number; y: number }>({
+    x: 20,
+    y: 20,
+  });
+  const ChessBroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isVisible) {

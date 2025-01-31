@@ -1,6 +1,13 @@
 import React from "react";
 import "./AppIcon.css";
-const AppIcon = ({ name, icon, handleClick }) => {
+
+interface AppIconProps {
+  name: string;
+  icon: string;
+  handleClick: () => void;
+}
+
+const AppIcon: React.FC<AppIconProps> = ({ name, icon, handleClick }) => {
   return (
     <>
       <div className="dock-app-icon" onClick={handleClick}>

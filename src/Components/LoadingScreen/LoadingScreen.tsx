@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 
 import "./LoadingScreen.css";
 
-const LoadingScreen = ({ setLoaded }) => {
-  const [statements, setStatements] = useState([]);
+interface LoadingScreenProps {
+  setLoaded: (loaded: boolean) => void;
+}
+
+const LoadingScreen: React.FC<LoadingScreenProps> = ({ setLoaded }) => {
+  const [statements, setStatements] = useState<string[]>([]);
   const setup = [
     "Initializing system hard software...",
     "Loading kebab modules...",

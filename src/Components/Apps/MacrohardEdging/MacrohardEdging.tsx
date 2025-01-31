@@ -1,5 +1,5 @@
-import React, { useState, useRef } from "react";
-import Draggable from "react-draggable";
+import React, { useState, useRef, FormEvent } from "react";
+import Draggable, { DraggableData, DraggableEvent } from "react-draggable";
 import { RefreshCw, Search, ExternalLink } from "lucide-react";
 import {
   handleClose,
@@ -9,15 +9,23 @@ import {
 } from "../../../scripts/index";
 import "./MacrohardEdging.css";
 
-const MacrohardEdging = ({ isVisible, setIsVisible }) => {
+interface MacrohardEdgingProps {
+  isVisible: boolean;
+  setIsVisible: (isVisible: boolean) => void;
+}
+
+const MacrohardEdging: React.FC<MacrohardEdgingProps> = ({
+  isVisible,
+  setIsVisible,
+}) => {
   const [url, setUrl] = useState("https://en.wikipedia.org/wiki/Main_Page");
   const [inputUrl, setInputUrl] = useState(
     "https://en.wikipedia.org/wiki/Main_Page"
   );
   const [isMaximized, setIsMaximized] = useState(false);
   const [position, setPosition] = useState({ x: 20, y: 20 });
-  const [error, setError] = useState(null);
-  const iframeRef = useRef(null);
+  const [error, setError] = useState<string | null>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   const handleRefresh = () => {
     setError(null);
@@ -26,11 +34,11 @@ const MacrohardEdging = ({ isVisible, setIsVisible }) => {
     }
   };
 
-  const handleSearch = (e) => {
+  const handleSearch = (e: FormEvent) => {
     e.preventDefault();
     setError(null);
 
-    let searchUrl;
+    let searchUrl: string;
     const urlPattern = /^(https?:\/\/)?([a-zA-Z0-9-]+\.[a-zA-Z]{2,})/i;
 
     if (inputUrl.match(urlPattern)) {
@@ -67,7 +75,9 @@ const MacrohardEdging = ({ isVisible, setIsVisible }) => {
         handle=".browser-header"
         bounds="parent"
         position={position}
-        onStop={(e, data) => handleDragStop(e, data, isMaximized, setPosition)}
+        onStop={(e: DraggableEvent, data: DraggableData) =>
+          handleDragStop(e, data, isMaximized, setPosition)
+        }
         disabled={isMaximized}
       >
         <div

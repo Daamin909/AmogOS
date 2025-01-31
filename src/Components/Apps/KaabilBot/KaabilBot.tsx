@@ -10,13 +10,22 @@ import {
   handleMaximize,
 } from "./../../../scripts/index";
 
-const KaabilBot = ({ isVisible, setIsVisible }) => {
-  const [url, setURL] = useState("https://kaabilbot.daamin.tech");
-  const [isMaximized, setIsMaximized] = useState(false);
-  const [position, setPosition] = useState({ x: 20, y: 20 });
-  const KaabilBotRef = useRef(null);
+interface KaabilBotProps {
+  isVisible: boolean;
+  setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const KaabilBot: React.FC<KaabilBotProps> = ({ isVisible, setIsVisible }) => {
+  const [url, setURL] = useState<string>("https://kaabilbot.daamin.tech");
+  const [isMaximized, setIsMaximized] = useState<boolean>(false);
+  const [position, setPosition] = useState<{ x: number; y: number }>({
+    x: 20,
+    y: 20,
+  });
+  const KaabilBotRef = useRef<HTMLDivElement>(null);
   const url1 = "https://kaabilbot.daamin.tech";
   const url2 = "https://kaabil-bot.vercel.app";
+
   useEffect(() => {
     if (isVisible) {
       handleRefresh(setURL, url1, url2);

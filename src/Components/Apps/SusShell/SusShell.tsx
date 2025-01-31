@@ -9,15 +9,23 @@ import {
 import Draggable from "react-draggable";
 import whenda from "../../../assets/sound/whendaimpostaissus.wav";
 
-const SusShell = ({ isVisible, setIsVisible }) => {
-  const [output, setOutput] = useState([]);
-  const [input, setInput] = useState("");
-  const [isMaximized, setIsMaximized] = useState(false);
-  const [position, setPosition] = useState({ x: 20, y: 20 });
-  const inputRef = useRef();
-  const shellRef = useRef();
-  const shellContentRef = useRef();
-  const [files] = useState([
+interface SusShellProps {
+  isVisible: boolean;
+  setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const SusShell: React.FC<SusShellProps> = ({ isVisible, setIsVisible }) => {
+  const [output, setOutput] = useState<string[]>([]);
+  const [input, setInput] = useState<string>("");
+  const [isMaximized, setIsMaximized] = useState<boolean>(false);
+  const [position, setPosition] = useState<{ x: number; y: number }>({
+    x: 20,
+    y: 20,
+  });
+  const inputRef = useRef<HTMLInputElement>(null);
+  const shellRef = useRef<HTMLDivElement>(null);
+  const shellContentRef = useRef<HTMLDivElement>(null);
+  const [files] = useState<string[]>([
     "victory.txt",
     "tasklst.txt",
     "scan.txt",
@@ -38,12 +46,14 @@ const SusShell = ({ isVisible, setIsVisible }) => {
     "sussycat.png",
     "cowboy.gif",
   ]);
+
   useEffect(() => {
     if (shellContentRef.current) {
       shellContentRef.current.scrollTop = shellContentRef.current.scrollHeight;
     }
   }, [output]);
-  const commands = {
+
+  const commands: { [key: string]: any } = {
     help: `Available commands: \nhelp\nls\nclear\nexit\necho\nsecret\ndate\nwhoami\ncat\nmkdir\ntips\npwd\nuptime\ntouch\nrm\nmv\nchmod\nsussy\nlocate\nsudo`,
     ls: () => files.join("\n"),
     clear: () => {
@@ -57,37 +67,37 @@ const SusShell = ({ isVisible, setIsVisible }) => {
 
       return "Exiting SusShell...";
     },
-    echo: (args) => args.join(" ") || "Usage: echo [text]",
+    echo: (args: string[]) => args.join(" ") || "Usage: echo [text]",
     secret: () => {
       window.open("https://www.youtube.com/watch?v=xvFZjo5PgG0", "_blank");
       return "shushhhh!!";
     },
     date: `Current date: ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`,
     whoami: "You are a SUSSY IMPOSTOR 🕵️.",
-    mkdir: (args) =>
+    mkdir: (args: string[]) =>
       args.length > 0
         ? `Directory '${args[0]}' created (not really, this is fake).`
         : "Usage: mkdir [directory_name]",
     tips: "Type `help` to see all commands. Explore for surprises!",
     pwd: "/ligma/balls/susShell",
     uptime: "System uptime: 69:69:69 (real).",
-    touch: (args) =>
+    touch: (args: string[]) =>
       args.length > 0
         ? `File '${args[0]}' created (fake file).`
         : "Usage: touch [file_name]",
-    cat: (args) =>
+    cat: (args: string[]) =>
       args.length > 0 && files.includes(args[0])
         ? `Contents of '${args[0]}': [Redacted by the impostor]`
         : "Usage: cat [file_name] - File not found.",
-    rm: (args) =>
+    rm: (args: string[]) =>
       args.length > 0 && files.includes(args[0])
         ? `File '${args[0]}' deleted (maybe idk lol).`
         : "Usage: rm [file_name] - File not found.",
-    mv: (args) =>
+    mv: (args: string[]) =>
       args.length > 1
         ? `Moved '${args[0]}' to '${args[1]}' (100%).`
         : "Usage: mv [source_file] [destination_file]",
-    chmod: (args) =>
+    chmod: (args: string[]) =>
       args.length > 1
         ? `Permissions of '${args[1]}' changed to '${args[0]}'.`
         : "Usage: chmod [permissions] [file_name]",
@@ -96,7 +106,7 @@ const SusShell = ({ isVisible, setIsVisible }) => {
       sussyAudio.play();
       return "You've been acting kinda sussy lately, ngl.";
     },
-    locate: (args) =>
+    locate: (args: string[]) =>
       args.length > 0
         ? `Searching for '${args[0]}'... found (actually not).`
         : "Usage: locate [item]",
@@ -104,7 +114,7 @@ const SusShell = ({ isVisible, setIsVisible }) => {
       "Error: You're not allowed to do that as a lowly impostor. Only crewmates can sudo!",
   };
 
-  const handleCommand = (command) => {
+  const handleCommand = (command: string) => {
     const [cmd, ...args] = command.split(" ");
     if (cmd === "clear") {
       setOutput([]);
@@ -133,7 +143,7 @@ const SusShell = ({ isVisible, setIsVisible }) => {
     }
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       e.preventDefault();
       if (input.length == 0) {
@@ -163,7 +173,7 @@ const SusShell = ({ isVisible, setIsVisible }) => {
         >
           <div
             className="shell-container"
-            onClick={() => inputRef.current.focus()}
+            onClick={() => inputRef.current?.focus()}
           >
             <div className="shell-header">
               <div className="shell-window-controls">

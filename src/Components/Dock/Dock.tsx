@@ -19,7 +19,14 @@ import ParodyPress from "./../Apps/ParodyPress/ParodyPress";
 import Oooo from "./../Apps/oooo/Oooo";
 import KaabilBot from "./../Apps/KaabilBot/KaabilBot";
 import MacrohardEdging from "../Apps/MacrohardEdging/MacrohardEdging";
-const Dock = () => {
+
+interface DockIcon {
+  name: string;
+  icon: string;
+  onClick: () => void;
+}
+
+const Dock: React.FC = () => {
   const [finderVisible, setFinderVisible] = useState(false);
   const [emojizeVisible, setEmojizeVisible] = useState(false);
   const [susShellVisible, setSusShellVisible] = useState(false);
@@ -30,7 +37,7 @@ const Dock = () => {
   const [kaabilbotVisible, setKaabilbotVisible] = useState(false);
   const [macrohardEdgingVisible, setMacrohardEdgingVisible] = useState(false);
 
-  const [dockIcons, setDockIcons] = useState([
+  const [dockIcons, setDockIcons] = useState<DockIcon[]>([
     {
       name: "SussyFinder",
       icon: finderIcon,

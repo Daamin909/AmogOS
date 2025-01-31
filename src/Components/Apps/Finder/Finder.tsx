@@ -27,15 +27,29 @@ import fourteenIMG from "../../../assets/images/file_images/chad.jpg";
 import oneSnd from "../../../assets/images/file_sound/alert.wav";
 import twoSnd from "../../../assets/images/file_sound/not_a_rick_roll.wav";
 
-const Finder = ({ isVisible, setIsVisible, parentRef }) => {
+interface File {
+  name: string;
+  type: string;
+  image?: string;
+  content?: string;
+  audio?: string;
+}
+
+interface FinderProps {
+  isVisible: boolean;
+  setIsVisible: (visible: boolean) => void;
+  parentRef?: React.RefObject<HTMLDivElement>;
+}
+
+const Finder: React.FC<FinderProps> = ({ isVisible, setIsVisible, parentRef }) => {
   const [isMaximized, setIsMaximized] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [showPreview, setShowPreview] = useState(false);
   const [position, setPosition] = useState({ x: 20, y: 20 });
-  const finderRef = useRef(null);
+  const finderRef = useRef<HTMLDivElement>(null);
 
-  const [files, setFiles] = useState([
+  const [files, setFiles] = useState<File[]>([
     {
       name: "amogus.png",
       type: "image",
@@ -483,13 +497,13 @@ const Finder = ({ isVisible, setIsVisible, parentRef }) => {
   ]);
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === " " && selectedFile) {
         e.preventDefault();
         setShowPreview(true);
       }
     };
-    const handleKeyUp = (e) => {
+    const handleKeyUp = (e: KeyboardEvent) => {
       if (e.key === " ") {
         setShowPreview(false);
       }
@@ -522,7 +536,7 @@ const Finder = ({ isVisible, setIsVisible, parentRef }) => {
     }
   };
 
-  const handleDragStop = (e, data) => {
+  const handleDragStop = (e: any, data: any) => {
     if (!isMaximized) {
       setPosition({ x: data.x, y: data.y });
     }
